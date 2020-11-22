@@ -15,6 +15,7 @@ export class AppComponent {
   textInput(){
     try {
       this.output = JSON.stringify(this.input)
+      this.myFunction(JSON.parse(this.input))
   } catch(e) {
       alert(e); // error in the above string (in this case, yes)!
   }
@@ -23,16 +24,23 @@ export class AppComponent {
     var x = document.createElement("TABLE");
         x.setAttribute("id", "myTable");
         document.body.appendChild(x);
+        let keys = [];
+        let values = [];
     Object.keys(e).forEach(x=>{
-      var y = document.createElement("TR");
-      y.setAttribute("id", "myTr");
-      var z = document.createElement("TD");
-      var t = document.createTextNode(x);
-      z.appendChild(t);
-      document.getElementById("myTr").appendChild(z);
+      console.log(e[x], x)
+      keys.push(x);
+      values.push(e[x])
+      
+    
+
+    //   var z = document.createElement("TD");
+    //   var t = document.createTextNode(x);
+    //   z.appendChild(t);
+    //   document.getElementById("myTr").appendChild(z);
     })
 
-
-  
+console.log(keys, values)
+    var y = document.createElement("TR");
+          y.setAttribute("id", "myTr");
   }
 }
